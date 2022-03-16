@@ -1,3 +1,4 @@
+/* eslint-disable space-before-function-paren */
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { cardData } from '../../constant';
