@@ -1,0 +1,7 @@
+{
+  "name": "lc-ui",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
