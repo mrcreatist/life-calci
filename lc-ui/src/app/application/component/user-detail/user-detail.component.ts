@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { DialogService } from '../../../shared/service';
 
 @Component({
-  selector: 'app-add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.scss']
+  selector: 'app-user-detail',
+  templateUrl: './user-detail.component.html',
+  styleUrls: ['./user-detail.component.scss']
 })
-export class AddUserComponent implements OnInit {
+export class UserDetailComponent implements OnInit {
 
   constructor (
     private dialog: DialogService
@@ -16,7 +16,7 @@ export class AddUserComponent implements OnInit {
   ngOnInit() {
   }
 
-  dismiss() {
+  close() {
     this.dialog.closeModal();
   }
 

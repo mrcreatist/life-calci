@@ -15,7 +15,7 @@
   </ion-header>
 
   <div class="container">
-    <ion-card *ngFor="let card of cards">
+    <ion-card *ngFor="let card of cards" (click)="openDetail(card)">
       <ion-card-header>
         <ion-card-subtitle>{{card.subtitle}}</ion-card-subtitle>
         <ion-card-title>{{card.title}}</ion-card-title>

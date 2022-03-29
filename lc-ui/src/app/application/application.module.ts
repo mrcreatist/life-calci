@@ -7,6 +7,7 @@ import { AboutComponent, AddUserComponent, LandingComponent, WelcomeComponent } 
 import { component, service } from './declaration';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   {
@@ -39,6 +40,7 @@ const routes: Routes = [
     IonicModule,
     ReactiveFormsModule,
     CoreModule,
+    SharedModule,
     RouterModule.forChild(routes)
   ],
   declarations: [ApplicationComponent, ...component],

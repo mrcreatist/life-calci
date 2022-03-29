@@ -1,7 +1,7 @@
 /* eslint-disable space-before-function-paren */
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { FormService } from 'lc-ui/src/app/core/service';
+import { FormService } from '../../../core/service';
 import { UserModel } from '../../model';
 
 @Component({
