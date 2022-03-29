@@ -1,8 +1,8 @@
 /* eslint-disable space-before-function-paren */
 import { Component, OnInit } from '@angular/core';
-import { DialogService } from 'src/app/shared/service';
-import { cardData } from '../../constant';
-import { CardModel } from '../../model';
+import { DialogService } from '../../../shared/service';
+import { CardModel, UserModel } from '../../model';
+import { AppService } from '../../service';
 import { AddUserComponent } from '../add-user/add-user.component';
 import { UserDetailComponent } from '../user-detail/user-detail.component';
 
@@ -13,20 +13,24 @@ import { UserDetailComponent } from '../user-detail/user-detail.component';
 })
 export class LandingComponent implements OnInit {
 
-  public cards: Array<CardModel> = cardData;
+  public cards: Array<CardModel> = [];
 
   constructor (
-    private dialog: DialogService
+    private dialog: DialogService,
+    private app: AppService
   ) { }
 
   ngOnInit() {
+    this.app.$data.subscribe((users: Array<UserModel>) => {
+      users.forEach((user: UserModel) => this.cards.push(this.app.calculateTime(user)));
+    });
   }
 
   async openModal() {
     this.dialog.openModal(AddUserComponent);
   }
 
-  openDetail(card: CardModel) {
+  openDetail(card) {
     this.dialog.openModal(UserDetailComponent, card);
   }
 

@@ -1,4 +1,4 @@
-import { AboutComponent, AddUserComponent, LandingComponent, UserInfoComponent, WelcomeComponent } from './component';
+import { AboutComponent, AddUserComponent, LandingComponent, UserDetailComponent, UserInfoComponent, WelcomeComponent } from './component';
 import { AppService } from './service';
 
 
@@ -7,7 +7,8 @@ export const component = [
     WelcomeComponent,
     LandingComponent,
     AddUserComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    UserDetailComponent
 ];
 
 export const service = [
