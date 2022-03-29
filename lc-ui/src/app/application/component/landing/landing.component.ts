@@ -30,7 +30,7 @@ export class LandingComponent implements OnInit {
     this.dialog.openModal(AddUserComponent);
   }
 
-  openDetail(card) {
+  openDetail(card: CardModel) {
     this.dialog.openModal(UserDetailComponent, card);
   }
 

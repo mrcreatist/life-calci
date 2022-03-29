@@ -1,5 +1,5 @@
 /* eslint-disable space-before-function-paren */
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DialogService } from '../../../shared/service';
 
 @Component({
@@ -7,14 +7,13 @@ import { DialogService } from '../../../shared/service';
   templateUrl: './user-detail.component.html',
   styleUrls: ['./user-detail.component.scss']
 })
-export class UserDetailComponent implements OnInit {
+export class UserDetailComponent {
+
+  @Input() data: any;
 
   constructor (
     private dialog: DialogService
   ) { }
-
-  ngOnInit() {
-  }
 
   close() {
     this.dialog.closeModal();

@@ -15,6 +15,7 @@ export class DialogService {
   async openModal(component: any, options: any = null) {
     return await this.modalController.create({
       component: component,
+      componentProps: { data: options },
       presentingElement: document.querySelector('app-landing'),
       swipeToClose: true
     }).then(dialog => dialog.present());

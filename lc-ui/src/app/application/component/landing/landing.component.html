@@ -17,7 +17,7 @@
   <div class="container">
     <ion-card *ngFor="let card of cards" (click)="openDetail(card)">
       <ion-card-header>
-        <ion-card-title>{{card.name}}</ion-card-title>
+        <ion-card-title>{{card.name || 'No Name'}}</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>
