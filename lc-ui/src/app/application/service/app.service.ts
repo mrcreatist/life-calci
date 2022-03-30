@@ -12,9 +12,7 @@ import {
   differenceInYears
 } from 'date-fns';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AppService {
 
   key = 'dataCollection';

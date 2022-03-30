@@ -3,9 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FORM } from '../constant';
 import { FormValidation } from '../enum';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class FormService {
 
   getForm(): FormGroup {

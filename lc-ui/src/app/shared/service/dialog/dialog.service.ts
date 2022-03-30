@@ -3,9 +3,7 @@
 import { Injectable } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DialogService {
 
   constructor (
