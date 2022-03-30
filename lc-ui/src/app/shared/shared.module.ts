@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { service } from '../declaration';
+import { service } from './declaration';
 
 @NgModule({
   imports: [
