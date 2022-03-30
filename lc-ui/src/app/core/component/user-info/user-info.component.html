@@ -1,0 +1,12 @@
+<form [formGroup]="form">
+  <ion-item>
+    <ion-label position="floating">Enter Name</ion-label>
+    <ion-input formControlName="name"></ion-input>
+    <ion-note *ngIf="validationCheck('name')" slot="error">This field is required</ion-note>
+  </ion-item>
+
+  <ion-datetime presentation="date" formControlName="date"></ion-datetime>
+  <ion-note *ngIf="validationCheck('date')" slot="error">This field is required</ion-note>
+
+  <ion-button [disabled]="form.invalid" (click)="submit()">Submit</ion-button>
+</form>

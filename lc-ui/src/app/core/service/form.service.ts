@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FORM } from '../constant';
+import { FormValidation } from '../enum';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,15 @@ export class FormService {
   }
 
   private getFormControl(initialValue, validation) {
-    return new FormControl(initialValue, validation);
+    const control = new FormControl(initialValue);
+    validation.forEach(validate => {
+      switch (validate) {
+        case FormValidation.required: {
+          control.addValidators(Validators.required);
+          break;
+        }
+      }
+    });
+    return control;
   }
 }

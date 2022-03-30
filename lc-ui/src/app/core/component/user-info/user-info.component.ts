@@ -1,8 +1,8 @@
 /* eslint-disable space-before-function-paren */
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { FormService } from '../../../core/service';
-import { UserModel } from '../../model';
+import { FormService } from '../../service';
+import { UserModel } from '../../../application/model';
 
 @Component({
   selector: 'app-user-info',
@@ -28,7 +28,13 @@ export class UserInfoComponent implements OnInit {
   }
 
   submit() {
-    this.data.emit(this.form.value);
+    if (this.form.valid) {
+      this.data.emit(this.form.value);
+    }
+  }
+
+  validationCheck(control: string) {
+    return this.form.controls[control].touched && this.form.controls[control].errors;
   }
 
 }

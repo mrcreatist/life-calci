@@ -1,4 +1,4 @@
-import { DataType } from '../enum/data-type.enum';
+import { DataType, FormValidation } from '../enum/data-type.enum';
 
 export class FormModel {
     name: FormData;
@@ -8,5 +8,5 @@ export class FormModel {
 export class FormData {
     type: DataType;
     initialValue: string;
-    validation: [];
+    validation: Array<FormValidation>;
 }
