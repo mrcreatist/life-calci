@@ -1,5 +1,3 @@
-import { HeaderComponent } from './component';
+import { HeaderComponent, MasterComponent } from './component';
 
-export const component = [
-    HeaderComponent
-];
+export const component = [HeaderComponent, MasterComponent];

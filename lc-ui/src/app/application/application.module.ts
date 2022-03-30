@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ApplicationComponent } from './application.component';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent, AddUserComponent, LandingComponent, WelcomeComponent } from './component';
+import {
+  AboutComponent,
+  AddUserComponent,
+  LandingComponent,
+  MasterComponent,
+  WelcomeComponent,
+} from './component';
 import { component, service } from './declaration';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
@@ -12,26 +17,26 @@ import { SharedModule } from '../shared/shared.module';
 const routes: Routes = [
   {
     path: '',
-    component: ApplicationComponent,
+    component: MasterComponent,
     children: [
       {
         path: 'home',
-        component: LandingComponent
+        component: LandingComponent,
       },
       {
         path: 'welcome',
-        component: WelcomeComponent
+        component: WelcomeComponent,
       },
       {
         path: 'add',
-        component: AddUserComponent
+        component: AddUserComponent,
       },
       {
         path: 'about',
-        component: AboutComponent
-      }
-    ]
-  }
+        component: AboutComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
@@ -41,9 +46,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     CoreModule,
     SharedModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
-  declarations: [ApplicationComponent, ...component],
-  providers: service
+  declarations: component,
+  providers: service,
 })
-export class ApplicationModule { }
+export class ApplicationModule {}

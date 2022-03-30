@@ -1,20 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InfoComponent } from './info.component';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { CoreModule } from '../core';
+import { component } from './declaration';
+import { MasterComponent } from './component';
 
-const routes = [{
-  path: '',
-  component: InfoComponent
-}];
+const routes = [
+  {
+    path: '',
+    component: MasterComponent,
+  },
+];
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    CoreModule,
+    RouterModule.forChild(routes),
   ],
-  declarations: [InfoComponent]
+  declarations: component,
 })
-export class InfoModule { }
+export class InfoModule {}

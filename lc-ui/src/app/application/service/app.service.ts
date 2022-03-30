@@ -1,6 +1,6 @@
 /* eslint-disable space-before-function-paren */
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { CardModel, UserModel } from '../model';
 import {
   differenceInSeconds,
@@ -11,23 +11,25 @@ import {
   differenceInWeeks,
   differenceInYears
 } from 'date-fns';
+import { StorageService } from '../../core/service';
 
 @Injectable()
 export class AppService {
 
-  key = 'dataCollection';
   dataCollection: Array<UserModel> = [];
   $data = new BehaviorSubject(this.dataCollection);
 
-  constructor () {
-    this.dataCollection = this.readLocal();
+  constructor (
+    private storage: StorageService
+  ) {
+    this.dataCollection = this.readStorage();
     this.updateEvent();
   }
 
   addUser(data: UserModel) {
     this.dataCollection.push(data);
     this.updateEvent();
-    this.updateLocal();
+    this.writeStorage();
   }
 
   calculateTime(user: UserModel): CardModel {
@@ -50,12 +52,12 @@ export class AppService {
     this.$data.next(this.dataCollection);
   }
 
-  updateLocal() {
-    localStorage.setItem(this.key, JSON.stringify(this.dataCollection));
+  writeStorage() {
+    this.storage.write(this.dataCollection);
   }
 
-  readLocal() {
-    return JSON.parse(localStorage.getItem(this.key)) || [];
+  readStorage() {
+    return this.storage.read();
   }
 
 }
